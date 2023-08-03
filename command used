@@ -1,0 +1,8 @@
+>> ng new project_name // used crete a angular project_name
+>> ng g c component_name // used to generate a component_name
+>> ng g c recipes --skipTests true // ( before it was like this ) ng g c component_name --spec false // used to generate a component_name
+>>  ng g c recipes/recipe-list --skipTests true // create a child component inside the parent component by specify the folder
+>>  ng g c recipes/recipe-detal --skipTests true
+>> ng g c recipes/recipe-list/recipe-item --skipTests true
+>> ng g c shopping-list --skipTests true
+>>  ng g c shopping-list/shopping-edit --skipTests true
