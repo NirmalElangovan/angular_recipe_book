@@ -6,10 +6,10 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 const appRouting: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
     // ! we need to restart the code whenever lazyload is implemented
-  { path:'recipes', loadChildren: './recipes/recipe.module#RecipeModule'}, // lazyload type 1
-  // { path:'recipes', loadChildren: './recipes/recipe.module'}, // lazyload type 2
+  { path:'recipes', loadChildren: './recipes/recipe.module#RecipeModule'}, // * lazyload type 1
+  // { path:'recipes', loadChildren: './recipes/recipe.module'}, //* lazyload type 2
   // {
-  //   path: 'recipes', loadChildren: () => import('./recipes/recipe.module') // lazyload type 3
+  //   path: 'recipes', loadChildren: () => import('./recipes/recipe.module') //* lazyload type 3
   //     .then(x => x.RecipeModule)
   // },
 
@@ -23,7 +23,7 @@ const appRouting: Routes = [
   },
 
 
-    { path: '**', component: ErrorPageComponent, data: { message: 'Page Not Found'}},
+  { path: '**', component: ErrorPageComponent, data: { message: 'Page Not Found'}},
 
 ];
 
