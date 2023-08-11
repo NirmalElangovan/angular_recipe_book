@@ -5,9 +5,10 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { StoreModule } from '@ngrx/store'; //* ngrx store
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CoreModule } from './core.module';
     SharedModule,
     // AuthModule,
     AppRoutingModule,
+    StoreModule.forRoot({shoppingList : shoppingListReducer}),
     CoreModule // * provided and service are moved to core module
   ],
   // // provide maintain one service instance for all the time still app running

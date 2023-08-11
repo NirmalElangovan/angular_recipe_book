@@ -7,7 +7,7 @@ const initialState = {
     new Ingredient('Tomatoes', 10),
   ]
 };
-// (state = initialState) it means set default value to the parameter if it Nulll or undefined
+// (state = initialState)  <===  it means set default value to the parameter if it Nulll or undefined
 // * Reducer contains two parameter STATE, ACTION
 // * :Action is a interface
 export function shoppingListReducer(state = initialState, action: Action) {
@@ -17,7 +17,7 @@ export function shoppingListReducer(state = initialState, action: Action) {
      // ! always copy the old state
     case 'ADD_INGREDIENT':
     return {
-        ...state,
+        ...state, // * always copy the old state and overwrite the existing one(example like ingredients)
         ingredients: [...state.ingredients, action]
     };
   }
