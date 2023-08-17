@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Ingredient } from '../../shared/ingredient.model';
-import * as ShoppingListAction from './shopping-list.actions';
+import * as ShoppingListActions from './shopping-list.actions';
 const initialState = {
   ingredients:  [
     new Ingredient('apple', 5),
@@ -12,16 +12,21 @@ const initialState = {
 // * :Action is a interface
 export function shoppingListReducer(
   state = initialState,
-  action: ShoppingListAction.AddIngredient
+  action: ShoppingListActions.AddIngredient
   ) {
   switch (action.type) {
     // * best practice to use upper_case;
-     // ! state.ingredients.push  ==>  it is totally wrong we don`t edit the existing state or previous state
-     // ! always copy the old state
-    case ShoppingListAction.ADD_INGREDIENT:
+    // ! state.ingredients.push  ==>  it is totally wrong we don`t edit the existing state or previous state
+    // ! always copy the old state
+    // ! state are immutable
+    case ShoppingListActions.ADD_INGREDIENT:
     return {
-        ...state,
-        ingredients: [...state.ingredients, action.payload ]
+        ...state, // * always copy the old state using spread operator
+      ingredients: [...state.ingredients, action.payload] // * overwrite the ingredients now
+                // * copy old ingredient first and then add the new ingredient with it
     };
+
+    default:
+      return state;
   }
 }

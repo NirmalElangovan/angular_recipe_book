@@ -27,6 +27,8 @@ import { LoggingService } from './logging.service';
     SharedModule,
     // AuthModule,
     AppRoutingModule,
+    // * setting up the NGRX store in application widely
+    // * action reducer MAP( its a javascript object any identifer of your choise( here is "shoppingList"))
     StoreModule.forRoot({shoppingList : shoppingListReducer}),
      CoreModule // * provided and service are moved to core module
   ],
